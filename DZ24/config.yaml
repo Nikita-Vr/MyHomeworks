@@ -1,0 +1,22 @@
+# Конфигурационный файл для проекта files_utils
+project_name: files_utils
+version: 1.0
+author: Ваше Имя
+description: "Модуль для работы с JSON, CSV, TXT и YAML файлами"
+files:
+  json_file: 'test.json'
+  csv_file: 'test.csv'
+  txt_file: 'test.txt'
+  yaml_file: 'test.yaml'
+settings:
+  json_encoding: 'utf-8'
+  csv_encoding: 'windows-1251'
+  txt_encoding: 'utf-8'
+  yaml_encoding: 'utf-8'
+tests:
+  run_tests: true
+  output_dir: 'output/'
+logging:
+  enable: true
+  level: DEBUG
+  log_file: 'logs/app.log'
