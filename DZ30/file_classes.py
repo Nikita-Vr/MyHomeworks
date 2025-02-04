@@ -51,3 +51,20 @@ class TxtFile(AbstractFile):
         with open(self.file_path, 'a') as file:
             file.write(data)
 
+class CsvFile(AbstractFile):
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def read(self):
+        with open(self.file_path, 'r', newline='') as file:
+            return list(csv.reader(file))
+
+    def write(self, data):
+        with open(self.file_path, 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(data)
+
+    def append(self, data):
+        with open(self.file_path, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(data)
