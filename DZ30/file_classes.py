@@ -35,3 +35,19 @@ class JsonFile(AbstractFile):
         current_data.update(data)  # Пример: объединяем данные
         self.write(current_data)
 
+class TxtFile(AbstractFile):
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def read(self):
+        with open(self.file_path, 'r') as file:
+            return file.read()
+
+    def write(self, data):
+        with open(self.file_path, 'w') as file:
+            file.write(data)
+
+    def append(self, data):
+        with open(self.file_path, 'a') as file:
+            file.write(data)
+
