@@ -19,7 +19,26 @@ class ImageCompressor:
         self.__quality = quality
         register_heif_opener()
     
+    @property
+    def quality(self) -> int:
+        """Возвращает текущее качество сжатия."""
+        return self.__quality
     
+    @quality.setter
+    def quality(self, value: int) -> None:
+        """
+        Устанавливает новое качество сжатия.
+        
+        Args:
+            value: Новое значение качества (1-100)
+            
+        Raises:
+            ValueError: Если значение вне допустимого диапазона
+        """
+        if 1 <= value <= 100:
+            self.__quality = value
+        else:
+            raise ValueError("Качество должно быть в диапазоне от 1 до 100")
     
     def compress_image(self, input_path: str, output_path: str) -> None:
         """
