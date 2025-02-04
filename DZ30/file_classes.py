@@ -18,3 +18,20 @@ class AbstractFile(ABC):
         """Добавляет данные в файл."""
         pass
 
+class JsonFile(AbstractFile):
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def read(self):
+        with open(self.file_path, 'r') as file:
+            return json.load(file)
+
+    def write(self, data):
+        with open(self.file_path, 'w') as file:
+            json.dump(data, file)
+
+    def append(self, data):
+        current_data = self.read()
+        current_data.update(data)  # Пример: объединяем данные
+        self.write(current_data)
+
